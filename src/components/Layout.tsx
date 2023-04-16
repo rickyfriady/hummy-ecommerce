@@ -7,7 +7,7 @@ type LayoutProbs = {
 
 const Layout = ({ children }: LayoutProbs) => {
   return (
-    <div className="bg-gray-950">
+    <div className="bg-background">
       <Navbar />
       {children}
     </div>
