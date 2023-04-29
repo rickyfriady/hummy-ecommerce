@@ -6,6 +6,24 @@ export default {
       bebasneue: 'Bebas Neue',
       poppins: 'Poppins',
     },
+    animation: {
+      'animation-start': 'starAnim 2s ease-in infinite',
+      'animation-spin': 'spinAnim 4s alternate infinite',
+    },
+    keyframes: {
+      starAnim: {
+        '0% , 100%': { opacity: 1 },
+        '50%': { opacity: 0.5 },
+      },
+      spinAnim: {
+        from: {
+          transform: 'rotate(0deg)',
+        },
+        to: {
+          transform: 'rotate(360deg)',
+        },
+      },
+    },
   },
   daisyui: {
     themes: [
