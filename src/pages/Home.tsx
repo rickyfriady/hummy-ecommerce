@@ -5,12 +5,27 @@ import playIcon from '../assets/playIcon.svg';
 import prevIcon from '../assets/previousIcon.svg';
 import SantaPng from '../assets/santa-head-trans.png';
 
+import * as React from 'react';
+
 const Home = () => {
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = React.useState(false);
+
+  const videoHandler = (control: any) => {
+    if (control === 'play') {
+      // videoRef.current.play();
+      setPlaying(true);
+    } else if (control === 'pause') {
+      // videoRef.current.pause();
+      setPlaying(false);
+    }
+  };
+
   return (
     <>
       <div className="flex justify-evenly gap-2 md:gap-0.5 flex-col md:flex-row ">
         <div className="md:w-[944px] md:h-[709px] rounded-[20px] overflow-hidden border-none relative">
-          <video className="w-full h-full bg-slate-200 object-cover" autoPlay={false}>
+          <video className="w-full h-full bg-slate-200 object-cover" autoPlay={false} ref={videoRef}>
             <source src="https://res.cloudinary.com/dy2uwxgvf/video/upload/v1681633461/hummy-ecommerce/hummy-video_mrmguq.mp4" type="video/mp4" />
             Error Message
           </video>
@@ -38,7 +53,7 @@ const Home = () => {
             <div className="flex items-center justify-evenly  m-auto">
               <img className="w-8 h-8 cursor-pointer mx-8" alt="" src={prevIcon} />
               <div className="w-20 h-20 cursor-pointer mx-8 inline-flex rounded-[20px] border-b-4 border-r-4 border-black bg-[#FFC264] hover:border-0 hover:transition-transform hover:duration-700 duration-200">
-                <img className="w-8 h-8 m-auto " alt="" src={playIcon} />
+                <img className="w-8 h-8 m-auto " alt="" src={playIcon} onClick={() => videoHandler('play')} />
               </div>
               <img className="w-8 h-8 cursor-pointer mx-8" alt="" src={nexticon} />
             </div>
