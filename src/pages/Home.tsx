@@ -6,6 +6,7 @@ import prevIcon from '../assets/previousIcon.svg';
 import SantaPng from '../assets/santa-head-trans.png';
 
 import * as React from 'react';
+import BottomNavMobile from '../components/molecules/BottomNavMobile';
 
 const Home = () => {
   const videoRef = React.useRef<HTMLVideoElement>(null);
@@ -26,7 +27,7 @@ const Home = () => {
       <div className="flex justify-evenly gap-2 md:gap-0.5 flex-col md:flex-row ">
         <div className="md:w-[944px] md:h-[709px] rounded-[20px] overflow-hidden border-none relative">
           <video className="w-full h-full bg-slate-200 object-cover" autoPlay={false} ref={videoRef}>
-            <source src="https://res.cloudinary.com/dy2uwxgvf/video/upload/v1681633461/hummy-ecommerce/hummy-video_mrmguq.mp4" type="video/mp4" />
+            <source src="https://res.cloudinary.com/dy2uwxgvf/video/upload/v1681633461/hummy-ecommerce/hummy-video_mrmguq.mp4" />
             Error Message
           </video>
           {/* controls */}
@@ -105,7 +106,7 @@ const Home = () => {
         </div>
       </div>
 
-      <section className="flex flex-col md:flex-row gap-0.5 py-0.5 ">
+      <section className="md:flex flex-row gap-0.5 py-0.5 hidden ">
         <div className="md:w-[378px] w-full aspect-video bg-rose-300 rounded-[20px] px-8 flex items-center relative overflow-hidden">
           <div className=" w-1/2 flex flex-col justify-center">
             <h2 className="font-poppins font-semibold text-black text-2xl">Sale Up To</h2>
@@ -162,6 +163,8 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      <BottomNavMobile />
     </>
   );
 };
